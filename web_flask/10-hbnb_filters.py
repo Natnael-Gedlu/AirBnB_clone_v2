@@ -3,7 +3,8 @@
 
 The application listens on 0.0.0.0, port 5000.
 Routes:
-    /hbnb_filters: HBnB HTML filters page.
+    /states: HTML page with a list of all State objects.
+    /states/<id>: HTML page displaying the given state with <id>.
 """
 from models import storage
 from flask import Flask
@@ -19,7 +20,6 @@ def hbnb_filters():
     amenities = storage.all("Amenity")
     return render_template("10-hbnb_filters.html",
                            states=states, amenities=amenities)
-
 
 @app.teardown_appcontext
 def teardown(exc):
